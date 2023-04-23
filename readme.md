@@ -18,7 +18,7 @@ This app requires the following dependencies:
 
 ## Installation
 
-1. Clone this repository: `git clone https://github.com/<your-username>/<your-repo-name>.git`
+1. Clone this repository: `https://github.com/BBurgarella/FlaskGPT.git`
 2. Install the required dependencies by running `pip install -r requirements.txt` from the root directory.
 3. Register for an OpenAI API key and paste it in the `API_KEY` and create an environement variable named "OPENAI_API_KEY"
 4. Run the app by executing `python app.py` from the command line.

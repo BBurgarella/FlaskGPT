@@ -30,6 +30,11 @@ This app requires the following dependencies:
 
 -> if you are unfamiliar with python and on windows, you can download the latest release to directly access to the GUI through a .exe file
 
+## Known issues
+
+- if running on mac OC with conda, some user seems to experience the keyboard being captured by the terminal instead of the app window, this is a known issue from the PyWebView library (Link to the issue) [https://github.com/r0x0r/pywebview/issues/66] the solution is to run:
+```>>> conda install python.app ``` and then run the app using ```>>> pythonw app.py ```
+
 ## Future Improvements
 
 - Allow users to select from a systemprompt library

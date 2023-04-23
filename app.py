@@ -168,7 +168,11 @@ def chat():
     # Handle POST request for new message
     if request.method == 'POST':
         message = request.form['message']
-        conversation = chatBot.thinkAbout(message, conversation)
+        if request.form['model'] != "":
+            model = request.form['model']
+        else:
+            model = "gpt-3.5-turbo"
+        conversation = chatBot.thinkAbout(message, conversation, model=model)
         response = conversation[-1]["content"]
         user_id = session['user_id']
         add_message(user_id, message, str(response))

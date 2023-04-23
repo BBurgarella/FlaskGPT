@@ -223,3 +223,53 @@ button:hover {
     width: 60vw;
     margin-right: 10px;
 }
+
+/* Reset default styles for select */
+select {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 10px;
+  font-size: 16px;
+  color: #333333;
+  font-family: sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+/* Add a custom arrow icon */
+select:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+/* Style the dropdown when it's open */
+select:focus {
+  outline: none;
+}
+
+/* Style the option elements */
+select option {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 16px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Style the selected option */
+select option:checked {
+  background-color: #333333;
+  color: #ffffff;
+}

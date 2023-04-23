@@ -97,6 +97,11 @@
     <div class = chat-input>
     <form method="POST" action="{{ url_for('chat') }}">
         <input type="text" class="text-input" name="message" placeholder="Type your message here...">
+        <select id="model" name="model">
+          <option value="" disabled selected>Select a model</option>
+          <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+          <option value="gpt-4">GPT-4</option>
+        </select>
         <button type="submit">Send</button>
     </form>
     <form method="POST" action="{{ url_for('reset_db') }}" class="reset-db-form">

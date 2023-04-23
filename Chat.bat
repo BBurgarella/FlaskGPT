@@ -1,1 +1,1 @@
-.\Python\python.exe app.py
+.\Python\python.exe chatbot.py

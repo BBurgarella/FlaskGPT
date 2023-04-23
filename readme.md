@@ -2,6 +2,8 @@
 
 This is a simple Flask application that allows anyone to use the OpenAI ChatGPT API with a Graphical User Interface (GUI) built with PyWebview. This app uses SQLite to store user login credentials.
 
+The release .exe was built using  [Bat2Exe](https://github.com/islamadel/bat2exe)
+
 ## Dependencies
 
 This app requires the following dependencies:
@@ -15,7 +17,7 @@ This app requires the following dependencies:
 
 1. Clone this repository: `git clone https://github.com/<your-username>/<your-repo-name>.git`
 2. Install the required dependencies by running `pip install -r requirements.txt` from the root directory.
-3. Register for an OpenAI API key and paste it in the `API_KEY` variable in `BrainModule.py`.
+3. Register for an OpenAI API key and paste it in the `API_KEY` and create an environement variable named "OPENAI_API_KEY"
 4. Run the app by executing `python app.py` from the command line.
 
 ## Usage

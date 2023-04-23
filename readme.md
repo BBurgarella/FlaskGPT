@@ -25,8 +25,10 @@ This app requires the following dependencies:
 
 ## Usage
 
-1. Upon starting the app, you will be prompted to create an account. Follow the instructions to create a new account.
+1. Upon starting the app, you will be prompted to create an account. Follow the instructions to create a new account. (this account is local and stored on your disk)
 2. After logging in, you will be directed to the chat interface. Type in your message and hit 'Send' to get a response from the OpenAI ChatGPT API.
+
+-> if you are unfamiliar with python and on windows, you can download the latest release to directly access to the GUI through a .exe file
 
 ## Future Improvements
 

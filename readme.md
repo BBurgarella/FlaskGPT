@@ -14,18 +14,21 @@ This app requires the following dependencies:
 - Flask
 - Werkzeug
 - PyWebview
+- openai
 
 ## Installation
 
-1. Clone this repository: `git clone https://github.com/<your-username>/<your-repo-name>.git`
+1. Clone this repository: `git clone https://github.com/BBurgarella/FlaskGPT.git`
 2. Install the required dependencies by running `pip install -r requirements.txt` from the root directory.
-3. Register for an OpenAI API key and paste it in the `API_KEY` and create an environement variable named "OPENAI_API_KEY"
+3. Register for an OpenAI API key and and create an environement variable named "OPENAI_API_KEY" with the key in it
 4. Run the app by executing `python app.py` from the command line.
 
 ## Usage
 
-1. Upon starting the app, you will be prompted to create an account. Follow the instructions to create a new account.
+1. Upon starting the app, you will be prompted to create an account. Follow the instructions to create a new account. (this account is local and stored on your disk)
 2. After logging in, you will be directed to the chat interface. Type in your message and hit 'Send' to get a response from the OpenAI ChatGPT API.
+
+-> if you are unfamiliar with python and on windows, you can download the latest release to directly access to the GUI through a .exe file
 
 ## Future Improvements
 

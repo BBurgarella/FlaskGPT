@@ -38,6 +38,7 @@ This app requires the following dependencies:
 ## Future Improvements
 
 - Allow users to select from a systemprompt library
+- avoid having to re-create a username and password if using the compiled version
 
 ## License
 

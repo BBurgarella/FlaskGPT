@@ -2,6 +2,7 @@ import sqlite3
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from BrainModule import chatGPT
+import sys
 import webview
 import os
 import threading
@@ -29,16 +30,12 @@ THE SOFTWARE.
 """
 
 
-# Initialize chat bot instance
-chatBot = chatGPT()
 
-# Read system prompt from file
-file = open("static/Prompts/Generic.pt", "r")
-systemprompt = "".join(file.readlines())
 
 # Initialize the SQLite database
 def init_db():
     conn = sqlite3.connect('users.db')
+    conn.text_factory = str
     c = conn.cursor()
     # Create users table if it doesn't exist
     c.execute('''CREATE TABLE IF NOT EXISTS users 
@@ -59,6 +56,7 @@ def init_db():
 # Delete message history for a user
 def delete_user_message_history(username):
     conn = sqlite3.connect('users.db')
+    conn.text_factory = str
     c = conn.cursor()
 
     # Get the user_id for the provided username
@@ -78,6 +76,7 @@ def delete_user_message_history(username):
 # Add a new user to the users table
 def add_user(username, password):
     conn = sqlite3.connect('users.db')
+    conn.text_factory = str
     c = conn.cursor()
     c.execute('INSERT INTO users (username, password) VALUES (?, ?)', 
               (username, generate_password_hash(password)))
@@ -87,6 +86,7 @@ def add_user(username, password):
 # Verify a user's credentials
 def verify_user(username, password):
     conn = sqlite3.connect('users.db')
+    conn.text_factory = str
     c = conn.cursor()
     c.execute('SELECT * FROM users WHERE username = ?', (username,))
     user = c.fetchone()
@@ -99,6 +99,7 @@ def verify_user(username, password):
 # Add a message and its response to the messages table
 def add_message(user_id, message, response):
     conn = sqlite3.connect('users.db')
+    conn.text_factory = str
     c = conn.cursor()
     c.execute('INSERT INTO messages (user_id, message, response) VALUES (?, ?, ?)', 
               (user_id, message, response))
@@ -108,6 +109,7 @@ def add_message(user_id, message, response):
 # Get the conversation history for a user
 def get_messages(user_id, systemprompt):
     conn = sqlite3.connect('users.db')
+    conn.text_factory = str
     conversation = []
     c = conn.cursor()
     c.execute('SELECT * FROM messages WHERE user_id = ? ORDER BY timestamp', (user_id,))
@@ -150,7 +152,6 @@ def login():
 # Define a route for the chat page
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
-    global systemprompt
     env_var = os.environ.get('OPENAI_API_KEY')
     # Show a popup if the API key is not set
     if env_var is None:
@@ -159,7 +160,7 @@ def chat():
         show_popup = True
 
     # Get the conversation history
-    conversation = get_messages(session['user_id'], systemprompt)
+    conversation = get_messages(session['user_id'], chatBot.agent_data["PrePrompt"])
 
     # Redirect to login page if not logged in
     if 'username' not in session:
@@ -168,7 +169,6 @@ def chat():
     # Handle POST request for new message
     if request.method == 'POST':
         message = request.form['message']
-        print(request.form)
         if "model" in request.form:
             model = request.form['model']
         else:
@@ -226,6 +226,12 @@ def run_flask():
     app.run(debug=False, host='127.0.0.1', port=5000)
 
 if __name__ == '__main__':
+    args = sys.argv
+    # Initialize chat bot instance
+    if len(args) > 1:
+        chatBot = chatGPT(agent=args[1])
+    else:
+        chatBot = chatGPT()
     init_db()
     t = threading.Thread(target=run_flask)
     t.daemon = True

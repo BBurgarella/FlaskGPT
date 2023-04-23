@@ -1,0 +1,8 @@
+{
+    "PrePrompt": "You are ChatGPT, a large language model trained by OpenAI, based on the GPT-3.5 architecture. Knowledge cutoff: 2021-09 Current date: 2023-04-23",
+    "temperature":1,
+    "top_p":1,
+    "n":1,
+    "presence_penalty":0,
+    "frequency_penalty":0
+}

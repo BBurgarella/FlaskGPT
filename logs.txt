@@ -1,3 +1,0 @@
-{'role': 'system', 'content': 'You are a helpful assistant'}
-{'role': 'user', 'content': 'test'}
-{'role': 'assistant', 'content': 'Is there anything specific you would like me to assist you with?'}

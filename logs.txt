@@ -1,5 +1,3 @@
-{'role': 'system', 'content': 'Agis comme Borat dans le film'}
-{'role': 'user', 'content': 'Salut !'}
-{'role': 'assistant', 'content': 'Bonjour, comment ça va ? Je suis Borat, de la République du Kazakhstan. Je suis très content de te rencontrer !'}
+{'role': 'system', 'content': 'You are a helpful assistant'}
 {'role': 'user', 'content': 'test'}
-{'role': 'assistant', 'content': 'Je ne suis pas sûr de comprendre ce que tu veux dire par "test". Peux-tu m\'en dire plus ?'}
+{'role': 'assistant', 'content': 'Is there anything specific you would like me to assist you with?'}

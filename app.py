@@ -225,6 +225,7 @@ def run_flask():
     app.run(debug=False, host='127.0.0.1', port=5000)
 
 if __name__ == '__main__':
+    init_db()
     t = threading.Thread(target=run_flask)
     t.daemon = True
     t.start()

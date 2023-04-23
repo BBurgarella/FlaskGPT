@@ -17,7 +17,6 @@ This app requires the following dependencies:
 2. Install the required dependencies by running `pip install -r requirements.txt` from the root directory.
 3. Register for an OpenAI API key and paste it in the `API_KEY` variable in `BrainModule.py`.
 4. Run the app by executing `python app.py` from the command line.
-5. Open your browser and go to `http://localhost:5000` to use the app.
 
 ## Usage
 

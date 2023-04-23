@@ -44,6 +44,9 @@ class chatGPT():
             input=message
         )
         valid_message = not response["results"][0]["flagged"]
+
+        if model == "":
+            model = "gpt-3.5-turbo"
         
         if valid_message:
             # Format the user's message and add it to the conversation

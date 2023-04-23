@@ -168,7 +168,8 @@ def chat():
     # Handle POST request for new message
     if request.method == 'POST':
         message = request.form['message']
-        if request.form['model'] != "":
+        print(request.form)
+        if "model" in request.form:
             model = request.form['model']
         else:
             model = "gpt-3.5-turbo"

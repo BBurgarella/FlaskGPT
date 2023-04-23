@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>    
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        document.querySelectorAll('code').forEach(function(block) {
+            block.insertAdjacentHTML('beforebegin', '<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>');
+        });
+        function copyToClipboard(button) {
+            var code = button.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(function() {
+                button.innerText = "Copied!";
+                setTimeout(function() {
+                    button.innerText = "Copy";
+                }, 2000);
+            }, function() {
+                button.innerText = "Error";
+            });
+        }
+    </script>
+    
+    <script>
+        function showAlert() {
+            alert("Warning: The specified environment variable was not found!");
+        }
+    </script>
+
+</head>
+<body>
+    <header class="header">
+        <div class="WebSite-name">
+            Website Name
+        </div>
+        <form method="POST" action="{{ url_for('logout') }}">
+            <button type="submit">Log Out</button>
+        </form>
+    </header>
+    <main class="chat-area">
+        <div class="chat-messages-container">
+            {% for message in messages %}
+            {% if message['role'] == "user" %}
+                <div class="chat-bubble user-message">
+                    {% if show_popup %}
+                    <script>showAlert();</script>
+                    {% endif %}
+                    {% if "<code>" in message['content'] %}
+                        {{ message['content']|safe }}
+                    {% else %}
+                        <p>{{ message['content']|replace("\n", "</p><p>") }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if message['role'] == "assistant" %}
+                <div class="chat-bubble chatgpt-message">
+                    {% if "<code>" in message['content'] %}
+                        {{ message['content']|safe }}
+                    {% else %}
+                        <p>{{ message['content']|replace("\n", "</p><p>") }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                function scrollToBottom() {
+                    const chatArea = $('.chat-area');
+                    chatArea.animate({ scrollTop: chatArea[0].scrollHeight }, 500);
+                }
+                scrollToBottom(); // Scroll to the bottom when the page loads
+        
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.addedNodes.length) {
+                            scrollToBottom();
+                        }
+                    });
+                });
+        
+                observer.observe($('.chat-messages-container')[0], {
+                    childList: true
+                });
+            });
+        </script>
+        
+               
+    </main>
+    <div class = chat-input>
+    <form method="POST" action="{{ url_for('chat') }}">
+        <input type="text" class="text-input" name="message" placeholder="Type your message here...">
+        <button type="submit">Send</button>
+    </form>
+    <form method="POST" action="{{ url_for('reset_db') }}" class="reset-db-form">
+        <button type="submit">Reset Message Database</button>
+    </form>
+    </div>
+</body>
+</html>

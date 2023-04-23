@@ -1,0 +1,225 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+.logo {
+    width: 200px;
+    height: 200px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #de222c;
+    color: #FFFFFF;
+}
+
+.WebSite-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.smalllogo {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #de222c;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+  }
+
+button:hover {
+    background-color: #FF8266;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  .login-form h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #de222c;
+    margin-bottom: 20px;
+  }
+  
+  .login-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  .login-form button[type="submit"] {
+    background-color: #de222c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .login-form button[type="submit"]:hover {
+    background-color: #b21724;
+  }
+  
+
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+  }
+  
+  .register-form h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #de222c;
+    margin-bottom: 20px;
+  }
+  
+  .register-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .register-form input[type="text"],
+  .register-form input[type="email"],
+  .register-form input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  .register-form button[type="submit"] {
+    background-color: #de222c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .register-form button[type="submit"]:hover {
+    background-color: #b21724;
+  }
+.register-entryzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    border: 1px solid #F0F0F0;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.chat-area {
+    background-color: #F0F0F0;
+    padding: 20px;
+    overflow-y: auto;
+    height: 65vh;
+    scroll-behavior: smooth;
+}
+
+.chat-bubble {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.user-message {
+    background-color: #FFFFFF;
+    align-self: flex-end;
+}
+
+.chatgpt-message {
+    background-color: #de222c;
+    color: #FFFFFF;
+    margin-left: auto;
+    align-self: flex-start;
+}
+
+.chat-input {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #F0F0F0;
+    background-color: #FFFFFF;
+}
+
+.text-input {
+    flex-grow: 1;
+    border: 1px solid #F0F0F0;
+    padding: 10px;
+    width: 60vw;
+    margin-right: 10px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="register-form">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" class="logo">
+            <h1>Website Name</h1>
+            <form action="{{ url_for('register') }}" method="POST" class="register-entryzone">
+                <input type="text" class="input-field" placeholder="Username" name="username">
+                <input type="password" class="input-field" placeholder="Password" name="password"> 
+                <input type="password" class="input-field" placeholder="Confirm Password" name="confirm_password"> 
+                <button type="submit", name="register">Register</button>
+                <button type="submit", name="login">Already have an account? Log in here</button>
+            </form>
+            
+        </div>
+    </div>
+</body>

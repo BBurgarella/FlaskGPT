@@ -1,0 +1,42 @@
+# .gitignore
+
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+env/
+*.egg-info/
+
+# Flask instance folder
+instance/
+
+# Logs and databases
+*.log
+*.sqlite
+
+# IDE project files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swo
+*.swp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+*.db
+*.exe
+Build.bat
+
+# Custom folders to ignore
+Release/

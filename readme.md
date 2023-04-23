@@ -32,7 +32,7 @@ This app requires the following dependencies:
 
 ## Known issues
 
-- if running on mac OC with conda, some user seems to experience the keyboard being captured by the terminal instead of the app window, this is a known issue from the PyWebView library (Link to the issue) [https://github.com/r0x0r/pywebview/issues/66] the solution is to run:
+- if running on mac OC with conda, some user seems to experience the keyboard being captured by the terminal instead of the app window, this is a known issue from the PyWebView library [Link to the issue](https://github.com/r0x0r/pywebview/issues/66) the solution is to run:
 ```>>> conda install python.app ``` and then run the app using ```>>> pythonw app.py ```
 
 ## Future Improvements

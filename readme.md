@@ -14,6 +14,7 @@ This app requires the following dependencies:
 - Flask
 - Werkzeug
 - PyWebview
+- openai
 
 ## Installation
 

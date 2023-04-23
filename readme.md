@@ -25,6 +25,22 @@ This app requires the following dependencies:
 
 ## Usage
 
+To start the chatbot, run the following command:
+```
+python chatbot.py [agent_name]
+
+```
+Replace `[agent_name]` with the name of the agent you want the chatbot to use (optional). If no agent name is provided, the chatbot will use the default agent.
+Example:
+```
+python chatbot.py alice
+```
+This will start the chatbot using the `alice` agent. If you want to use the default agent, simply run:
+
+```
+python chatbot.py
+```
+
 1. Upon starting the app, you will be prompted to create an account. Follow the instructions to create a new account. (this account is local and stored on your disk)
 2. After logging in, you will be directed to the chat interface. Type in your message and hit 'Send' to get a response from the OpenAI ChatGPT API.
 

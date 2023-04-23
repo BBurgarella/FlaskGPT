@@ -67,7 +67,7 @@ class chatGPT():
         if agent is None:
             self.agent_data = load_agent("agents/Generic.json")
         else:
-            self.agent_data = load_agent(agent)
+            self.agent_data = load_agent(f"agents/{agent}.json")
         
     def update_agent(self, filename):
         self.agent_data = load_agent(filename)

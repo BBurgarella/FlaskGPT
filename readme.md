@@ -1,6 +1,6 @@
 # A Flask ChatGPT App with PyWebview GUI
 
-<img style="float: right;" src="https://github.com/BBurgarella/FlaskGPT/blob/main/static/images/logo.png" width=20% height=20%>
+![Demo image](https://github.com/BBurgarella/FlaskGPT/blob/main/static/images/Demo_image.png)
 
 This is a simple Flask application that allows anyone to use the OpenAI ChatGPT API with a Graphical User Interface (GUI) built with PyWebview. This app uses SQLite to store user login credentials.
 
@@ -24,8 +24,6 @@ This app requires the following dependencies:
 4. Run the app by executing `python app.py` from the command line.
 
 ## Usage
-
-![Demo image](https://github.com/BBurgarella/FlaskGPT/blob/main/static/images/Demo_image.png)
 
 To start the chatbot, run the following command:
 ```

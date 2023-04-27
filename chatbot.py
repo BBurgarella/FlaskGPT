@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 from werkzeug.security import generate_password_hash, check_password_hash
 from BrainModule import chatGPT
 import sys
+import argparse
 import webview
 import os
 import threading
@@ -225,13 +226,25 @@ def reset_db():
 def run_flask():
     app.run(debug=False, host='127.0.0.1', port=5000)
 
+# Definition of the parser
+parser = argparse.ArgumentParser()
+# The choice of agent
+parser.add_argument("-a", "--agent", required=False, 
+                    help="File with the preprompt to configure the agent")
+# Choice of hosting (Azure or openAI)
+parser.add_argument("-hst", "--host", required=False, 
+                    help="Hosting service for chatGPT",
+                    choices=["OpenAI", "Azure"], default="OpenAI")
+
+
+
 if __name__ == '__main__':
-    args = sys.argv
+
+
+
+    args = parser.parse_args()
     # Initialize chat bot instance
-    if len(args) > 1:
-        chatBot = chatGPT(agent=args[1])
-    else:
-        chatBot = chatGPT()
+    chatBot = chatGPT(agent=args.agent, host=args.host)
     init_db()
     t = threading.Thread(target=run_flask)
     t.daemon = True

@@ -60,7 +60,7 @@ def load_agent(file):
 
 class chatGPT():
 
-    def __init__(self, agent=None):
+    def __init__(self, agent=None, host=None):
         # Get the API key
         openai.api_key = os.getenv("OPENAI_API_KEY")
         # Load the system prompt from a file
@@ -68,6 +68,8 @@ class chatGPT():
             self.agent_data = load_agent("agents/Generic.json")
         else:
             self.agent_data = load_agent(f"agents/{agent}.json")
+
+        self.Host = host
         
     def update_agent(self, filename):
         self.agent_data = load_agent(filename)

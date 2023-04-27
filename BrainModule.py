@@ -113,6 +113,10 @@ class chatGPT():
                     conversation.append({"role": "assistant", "content":response})
                     return conversation
             
+            if "error" in response.keys():
+                    conversation.append({"role": "assistant", "content":response["error"]["message"]})
+                    return conversation                
+
             # Format the response and add it to the conversation
             conversation.append({"role": "assistant", "content":response['choices'][0]['message']['content']})
             
